@@ -15,11 +15,13 @@ export default function Header() {
     <div className="header">
       <div className="container">
         <div className="header__inner">
-          <img
-            className="git-icon"
-            src={"./images/git-icon.svg"}
-            alt={"git icon"}
-          />
+          <a href="/">
+            <img
+              className="git-icon"
+              src={"./images/git-icon.svg"}
+              alt={"git icon"}
+            />
+          </a>
           <form className="header__form" onSubmit={(event) => submit(event)}>
             <input
               type="text"

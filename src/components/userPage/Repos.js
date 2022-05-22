@@ -38,7 +38,7 @@ function Repos() {
       </ul>
       <div className="repos-paginate">
         <p className="repos-paginate__info">
-          {paginateLimit} of {user.public_repos} items
+          1-4 of {user.public_repos} items
         </p>
         <ReactPaginate
           previousLabel={
