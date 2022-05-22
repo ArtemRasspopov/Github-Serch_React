@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import Context from "../../context/Context";
 
 export default function Header() {
-  const [value, setValue] = useState("gaearon");
+  const [value, setValue] = useState("");
   const { serchUser } = useContext(Context);
 
   function submit(event) {
