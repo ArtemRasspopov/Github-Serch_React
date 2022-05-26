@@ -7,7 +7,7 @@ function Repos() {
   const { user } = useContext(Context);
   const [reposItems, setReposItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const paginateLimit = 10;
+  const paginateLimit = 4;
   const pageCount = Math.ceil(user.public_repos / paginateLimit);
 
   useEffect(() => {
