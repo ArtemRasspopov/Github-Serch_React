@@ -1,1 +1,1 @@
-https://luxury-mochi-bf29af.netlify.app
+Demo: https://luxury-mochi-bf29af.netlify.app
