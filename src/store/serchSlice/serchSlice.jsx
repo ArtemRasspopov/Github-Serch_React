@@ -26,6 +26,7 @@ export const serchSlice = createSlice({
     [fetchUserById.fulfilled]: (state, action) => {
       state.serchStatus = "SHOW__USER";
       state.user = action.payload;
+      console.log(action.payload)
     },
     [fetchUserById.rejected]: (state) => {
       state.serchStatus = "SHOW__NOTFOUND";
@@ -33,5 +34,7 @@ export const serchSlice = createSlice({
     },
   },
 });
+
+
 
 export default serchSlice.reducer;
