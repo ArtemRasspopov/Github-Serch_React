@@ -1,39 +1,30 @@
 import React, { useEffect, useState } from "react";
-import {
-  SHOW__INITIAL,
-  SHOW__LOADER,
-  SHOW__NOTFOUND,
-  SHOW__USER,
-} from "../../context/types";
+import { useSelector } from "react-redux";
 import { Initial } from "./Initial";
 import { NotFound } from "./NotFound";
 import { Preloader } from "./Preloader";
 import User from "./User";
 
 function UserPage({ serchResult }) {
-  const [userPageState, setUserPageState] = useState(SHOW__INITIAL);
-  const [showState, setShowState] = useState(<Initial />);
-
-  useEffect(() => {
-    setUserPageState(serchResult);
-  }, [serchResult]);
-
+  const [page, setPage] = useState(<Initial />);
+  const pageStatus = useSelector((state) => state.serchSlice.serchStatus);
+  
   useEffect(() => {
     function stateReduser() {
-      if (userPageState === SHOW__INITIAL) {
-        setShowState(<Initial />);
-      } else if (userPageState === SHOW__NOTFOUND) {
-        setShowState(<NotFound />);
-      } else if (userPageState === SHOW__USER) {
-        setShowState(<User />);
-      } else if (userPageState === SHOW__LOADER) {
-        setShowState(<Preloader />);
+      if (pageStatus === "SHOW__INITIAL") {
+        setPage(<Initial />);
+      } else if (pageStatus === "SHOW__NOTFOUND") {
+        setPage(<NotFound />);
+      } else if (pageStatus === "SHOW__USER") {
+        setPage(<User />);
+      } else if (pageStatus === "SHOW__LOADER") {
+        setPage(<Preloader />);
       }
     }
     stateReduser();
-  }, [userPageState]);
+  }, [pageStatus]);
 
-  return <div className="user-page">{showState}</div>;
+  return <div className="user-page">{page}</div>;
 }
 
 export default UserPage;

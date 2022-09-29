@@ -1,13 +1,14 @@
-import React, { useContext, useState } from "react";
-import Context from "../../context/Context";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchUserById } from "./../../store/serchSlice/serchSlice";
 
 export default function Header() {
   const [value, setValue] = useState("");
-  const { serchUser } = useContext(Context);
+  const dispatch = useDispatch()
 
   function submit(event) {
     event.preventDefault();
-    serchUser(value);
+    dispatch(fetchUserById(value))
     setValue("");
   }
 

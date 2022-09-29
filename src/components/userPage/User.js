@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import Context from "../../context/Context";
+import React from "react";
+import { useSelector } from "react-redux";
 import { NotRepos } from "./NotRepos";
 import Repos from "./Repos";
 
 function User() {
-  const { user } = useContext(Context);
-
+  const user = useSelector((state) => state.serchSlice.user)
+  
   return (
     <div className="user">
       <div className="container">
